@@ -1,0 +1,20 @@
+version: '3'
+x-extra_hosts:
+  &default-extra_hosts
+  - "api.sevocity.com:192.168.65.2"
+  - "auth.sevocity.com:192.168.65.2"
+
+services:
+  inferno:
+    extra_hosts: *default-extra_hosts
+  validator_service:
+    extra_hosts: *default-extra_hosts
+  # fhir_validator_app:
+  nginx:
+    extra_hosts: *default-extra_hosts
+    #ports: # may need to change ports if main compose conflicts 
+    # - "8081:80"
+  redis:
+    extra_hosts: *default-extra_hosts
+  worker:
+    extra_hosts: *default-extra_hosts
